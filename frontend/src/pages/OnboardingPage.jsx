@@ -63,6 +63,7 @@ const OnboardingPage = () => {
                     src={formState.profilePic}
                     alt="Profile Preview"
                     className="w-full h-full object-cover"
+                    required
                   />
                 ) : (
                   <div className="flex items-center justify-center h-full">

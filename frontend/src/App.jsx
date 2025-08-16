@@ -11,6 +11,7 @@ import OnboardingPage from "./pages/OnboardingPage.jsx";
 
 import PageLoader from "./components/PageLoader.jsx.jsx"; // loader icon
 import useAuthUser from "./hooks/useAuthUser.js"; // custom hook to fetch auth user
+import Layout from "./components/Layout.jsx";
 
 const App = () => {
   const { isLoading, authUser } = useAuthUser();
@@ -29,7 +30,9 @@ const App = () => {
           path="/"
           element={
             isAuthenticated && isOnboarded ? (
-              <HomePage />
+              <Layout showSidebar={true}>
+                <HomePage />
+              </Layout>
             ) : (
               <Navigate to={!isAuthenticated ? "/login" : "onboarding"} />
             )

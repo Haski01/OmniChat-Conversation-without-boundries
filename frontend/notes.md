@@ -104,3 +104,10 @@ const { data, isLoading, error } = useQuery({
 
 - storySet for images: [image link](https://storyset.com/search?q=video%20call)
 - lucide-react for icons: [doc](https://lucide.dev/guide/packages/lucide-react)
+
+- build signupPage ui
+- build onboardingPage ui
+- build loginPage ui
+
+- build layout (navbar and sidebar) for homePage and notification page..
+  - build layout and wrap homePage and notification page and other components with layout in app.jsx
