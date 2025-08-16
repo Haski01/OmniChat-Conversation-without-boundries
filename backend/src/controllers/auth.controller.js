@@ -32,14 +32,12 @@ export async function signup(req, res) {
         .json({ message: "Email already existed please use diffrent one " });
     }
 
-    const randomAvatar = `https://ui-avatars.com/api/?name=${fullName}&background=random&size=100`; // Generate a random avatar URL
-
     // Create a new user
     const newUser = await User.create({
       fullName,
       email,
       password,
-      profilePic: randomAvatar,
+      profilePic: "",
     });
 
     // TODO: CREATE THE USER IN STREAM AS WELL - done
@@ -58,7 +56,7 @@ export async function signup(req, res) {
 
     // create a JWT token
     const token = jwt.sign(
-      { userId: newUser._id }, // payload/data
+      { userId: newUser._id }, // payload or data
       process.env.JWT_SECRET_KEY,
       { expiresIn: "7d" }
     );
@@ -148,8 +146,16 @@ export async function logout(req, res) {
 export async function onboard(req, res) {
   try {
     const userId = req.user._id;
-    const { fullName, bio, nativeLanguage, learningLanguage, location } =
-      req.body;
+    const {
+      fullName,
+      bio,
+      nativeLanguage,
+      learningLanguage,
+      location,
+      profilePic,
+    } = req.body;
+
+    console.log(req.body.profilePic);
 
     // Validate the input data
     if (
@@ -176,10 +182,13 @@ export async function onboard(req, res) {
       userId,
       {
         ...req.body,
+        profilePic: profilePic,
         isOnboarded: true,
       },
       { new: true }
     ); // { new: true } returns the updated document
+
+    await updatedUser.save();
 
     if (!updatedUser) {
       return res.status(404).json({ message: "User not found" });

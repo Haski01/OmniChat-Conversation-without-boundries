@@ -12,10 +12,19 @@ import userRoutes from "./routes/user.route.js"; // Importing the user routes
 import chatRoutes from "./routes/auth.chat.js"; // Importing the chat routes
 
 import { connectDB } from "./db/lib.js"; // Importing the connectDB function to connect to MongoDB
-import cookieParser from "cookie-parser"; // // Importing cookie-parser to parse cookies in the request headers
+import cookieParser from "cookie-parser"; // Importing cookie-parser to parse cookies in the request headers
+import cors from "cors"; // importing cors package to connect backend with frontend
 
 const app = express(); // Create an Express application
 const PORT = process.env.PORT || 5002; // Default to 5002 if PORT is not set in .env
+
+// inable or allow commmunication frondend with backend
+app.use(
+  cors({
+    origin: "http://localhost:5173",
+    credentials: true, // allow frontend to send cookies
+  })
+);
 
 app.use(express.json()); // for parsing req.body data as JSON
 app.use(cookieParser()); // for parsing cookies in the request headers

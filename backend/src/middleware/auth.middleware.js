@@ -7,7 +7,8 @@ import User from "../models/User.js";
 
 export const protectRoute = async (req, res, next) => {
   try {
-    const token = req.cookies.jwt;
+    const token = req.cookies.jwt; // we able to access jwt token from req.cokkies bcz of (cookieParser) npm package which we install and setup in server.js file
+
     // console.log(token);
 
     if (!token) {
