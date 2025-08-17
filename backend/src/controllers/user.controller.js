@@ -111,13 +111,12 @@ export async function acceptFriendRequest(req, res) {
     // check if the friend request exists
     const friendRequest = await FriendRequest.findById(requestId);
 
-
     if (!friendRequest) {
-      return res.status(404).json({ message: "Friend request not found"});
+      return res.status(404).json({ message: "Friend request not found" });
     }
 
     // check if the current user is the recipient
-    if (friendRequest.recipient.toString() !== req.user._id) {
+    if (friendRequest.recipient.toString() !== req.user.id) {
       return res.status(403).json({
         message: "You are not authorized to accept this friend request",
       });
