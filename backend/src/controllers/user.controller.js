@@ -17,7 +17,7 @@ export async function getRecommendedUsers(req, res) {
     // Find users who are not the current user and not friends of the current user
     const recommendedUsers = await User.find({
       // Exclude the current user - $ne: not equal
-      // Exclude friends who are already friends or in friend list -$nin: not in
+      // Exclude friends who are already friends or in friend list - $nin: not in
       _id: { $ne: currentUserId, $nin: currentUser.friends },
       isOnboarded: true, // Only include users who are onboarded means who have completed their profile learningLanguage as well as nativeLanguage
     });

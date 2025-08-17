@@ -110,4 +110,49 @@ const { data, isLoading, error } = useQuery({
 - build loginPage ui
 
 - build layout (navbar and sidebar) for homePage and notification page..
+
   - build layout and wrap homePage and notification page and other components with layout in app.jsx
+
+### Zustand (React State Management Library)
+
+- use zustand for theme selection of page according to user click or want basically zustand allow us to create global hook which we can use any file
+
+- What it is: A small, fast, and simple state management library for React.
+- Why use it: Lets you manage global state without the boilerplate of Redux.
+
+- Key Features:
+
+  - Minimal setup (no reducers, actions, or providers needed).
+  - Global state is stored in a central "store."
+  - Components can read/write state directly from this store.
+  - Works with both React and non-React code.
+  - Super lightweight and fast (only a few KB).
+
+- How it works (in steps):
+
+  1. Create a store (like a container for state + actions).
+  2. Components use a hook (useStore) to access/update that state.
+  3. Any component using the store automatically re-renders when that state changes.
+
+  - Example:
+
+  ```js
+  import create from "zustand";
+
+  // 1. Create store
+  const useCounterStore = create((set) => ({
+    count: 0,
+    increase: () => set((state) => ({ count: state.count + 1 })),
+  }));
+
+  // 2. Use in component
+  function Counter() {
+    const { count, increase } = useCounterStore();
+    return (
+      <div>
+        <p>{count}</p>
+        <button onClick={increase}>+</button>
+      </div>
+    );
+  }
+  ```

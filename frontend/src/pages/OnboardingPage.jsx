@@ -39,7 +39,7 @@ const OnboardingPage = () => {
 
     const randomAvatar = `https://ui-avatars.com/api/?name=${
       authUser.fullName
-    }&&background=${getRandomColor()}&size=100`;
+    }&&background=${getRandomColor()}`;
 
     setFormState({ ...formState, profilePic: randomAvatar });
     toast.success("Random profile picture generated!");

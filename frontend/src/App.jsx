@@ -13,8 +13,12 @@ import PageLoader from "./components/PageLoader.jsx.jsx"; // loader icon
 import useAuthUser from "./hooks/useAuthUser.js"; // custom hook to fetch auth user
 import Layout from "./components/Layout.jsx";
 
+import { useThemeStore } from "./store/useThemeStore.js"; // zustand global store
+
 const App = () => {
   const { isLoading, authUser } = useAuthUser();
+
+  const { theme } = useThemeStore(); //zustand themeStore hook
 
   const isAuthenticated = Boolean(authUser); // true false
   const isOnboarded = authUser?.isOnboarded;
@@ -24,7 +28,7 @@ const App = () => {
   if (isLoading) return <PageLoader />;
 
   return (
-    <div className=" h-screen " data-theme="dark">
+    <div className=" h-screen " data-theme={theme}>
       <Routes>
         <Route
           path="/"

@@ -2,6 +2,8 @@
 
 import { axiosInstance } from "./axios";
 
+// authentication
+
 export const signup = async (signupData) => {
   const response = await axiosInstance.post("/auth/signup", signupData);
   return response.data;
@@ -31,3 +33,24 @@ export const completeOnboarding = async (onboardingData) => {
   const response = await axiosInstance.post("/auth/onboarding", onboardingData);
   return response.data;
 };
+
+// users
+export const getUserFriends = async () => {
+  const response = await axiosInstance.get("/users/friends");
+  return response.data;
+};
+
+export const getRecommendedUsers = async () => {
+  const response = await axiosInstance.get("/users");
+  return response.data;
+};
+
+export async function getOutgoingFriendReqs() {
+  const response = await axiosInstance.get("/users/outgoing-friend-requests");
+  return response.data;
+}
+
+export async function sendFriendRequest(userId) {
+  const response = await axiosInstance.post(`/users/friend-request/${userId}`);
+  return response.data;
+}

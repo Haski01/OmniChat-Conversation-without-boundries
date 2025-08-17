@@ -15,7 +15,8 @@ const Navbar = () => {
   const isChatPage = location.pathname?.startsWith("/chat"); // to check is the user on chat page for displaying logo and app name
 
   // when we don't use custome hook
-  /*const queryClient = useQueryClient();
+  /*
+  const queryClient = useQueryClient();
   const { mutate: logoutMutation } = useMutation({
     mutationFn: logout,
     onSuccess: () => queryClient.invalidateQueries({ queryKey: ["authUser"] }),
@@ -26,8 +27,8 @@ const Navbar = () => {
   const { logoutMutation } = useLogout();
 
   return (
-    <nav className="bg-base-200 border-b border-base-300 sticky top-0 z-30 h-16 flex item-center">
-      <div className="container mx-auto p-4 sm:p-6 lg:p-8 ">
+    <nav className="bg-base-200 border-b border-base-300 sticky top-0 z-30 h-16 flex item-center mb-2">
+      <div className="container mx-2 p-2 ">
         <div className="flex items-center justify-end w-full ">
           {/* LOGO - ONLY IN THE CHAT PAGE */}
           {isChatPage && (
