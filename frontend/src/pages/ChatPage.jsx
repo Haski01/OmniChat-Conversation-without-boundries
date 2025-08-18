@@ -114,9 +114,10 @@ const ChatPage = () => {
         <Channel channel={channel}>
           <div className="w-full relative">
             {/* button for starting video call */}
+
             <CallButton handleVideoCall={handleVideoCall} />
 
-            {/* main chat window */}
+            {/* main chat window */} 
             <Window>
               <ChannelHeader />{" "}
               {/* shows chat header (user info), profile pic and fullName and also total members login state */}

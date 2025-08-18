@@ -193,5 +193,17 @@ const { data, isLoading, error } = useQuery({
 import 'stream-chat-react/dist/css/v2/index.css';
 ```
 
-- build call page
-- deploy
+### build call page using stream..
+
+#### step to build or setup audio and video call
+
+- Steps:
+  - 1.  Make sure we have everything required → user, token, and callId from URL.
+  - 2.  Create a Stream video client instance with API key + user + token.
+  - 3.  Create a "call instance" (like a meeting room) using callId.
+  - 4.  Join the call. If it doesn’t exist, "create: true" makes a new one.
+  - 5.  Save client and call to state, so React can render the call UI.
+  - 6.  Handle errors (if token invalid, call failed, etc.) gracefully.
+
+* [audio and video call: doc](https://getstream.io/video/sdk/react/tutorial/video-calling/)
+* deploy

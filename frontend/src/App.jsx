@@ -9,7 +9,7 @@ import CallPage from "./pages/CallPage.jsx";
 import ChatPage from "./pages/ChatPage.jsx";
 import OnboardingPage from "./pages/OnboardingPage.jsx";
 
-import PageLoader from "./components/PageLoader.jsx.jsx"; // loader icon
+import PageLoader from "./components/PageLoader.jsx"; // loader icon
 import useAuthUser from "./hooks/useAuthUser.js"; // custom hook to fetch auth user
 import Layout from "./components/Layout.jsx";
 
@@ -78,8 +78,14 @@ const App = () => {
         />
 
         <Route
-          path="/call"
-          element={isAuthenticated ? <CallPage /> : <Navigate to={"/login"} />}
+          path="/call/:id"
+          element={
+            isAuthenticated && isOnboarded ? (
+              <CallPage />
+            ) : (
+              <Navigate to={!isAuthenticated ? "/login" : "/onboarding"} />
+            )
+          }
         />
 
         <Route
