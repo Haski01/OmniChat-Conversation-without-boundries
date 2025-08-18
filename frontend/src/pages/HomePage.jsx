@@ -10,7 +10,12 @@ import {
 } from "../lib/api";
 
 import { Link } from "react-router";
-import { CheckCircleIcon, MapPinIcon, UserPlusIcon, UsersIcon } from "lucide-react";
+import {
+  CheckCircleIcon,
+  MapPinIcon,
+  UserPlusIcon,
+  UsersIcon,
+} from "lucide-react";
 
 import NoFriendsFound from "../components/NoFriendsFound";
 import FriendCard, { getLanguageFlag } from "../components/FriendCard";
@@ -57,7 +62,7 @@ const HomePage = () => {
   }, [outgoingFriendReqs]);
 
   return (
-    <div className="p-4 sm:p-6 lg:p-8 h-screen">
+    <div className="p-4 sm:p-6 lg:p-8">
       <div className="container mx-auto space-y-10 ">
         {/* YOUR FRIENDS HEADING AND FRIEND REQUEST BUTTON */}
         <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
@@ -166,7 +171,7 @@ const HomePage = () => {
                         <p className="text-sm opacity-70">{user.bio}</p>
                       )}
 
-                         {/* Action button */}
+                      {/* Action button */}
                       <button
                         className={`btn w-full mt-2 ${
                           hasRequestBeenSent ? "btn-disabled" : "btn-primary"
