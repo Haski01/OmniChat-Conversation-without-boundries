@@ -1,6 +1,6 @@
 ## setup frontend
 
-- npm create vite@latest . : // (.) is tells download in frontend find only or current file only
+- npm create vite@latest . : // (.) is tells download in frontend file only or current file only
 - clean up code
 - setup tailwindcss with vite
 - setup daisyUI plugin : npm i -D daisyui@4.12.24
@@ -156,3 +156,42 @@ const { data, isLoading, error } = useQuery({
     );
   }
   ```
+
+- build homePage and homePage related componensts
+- build notification page
+
+### build chat page
+
+- [doc](https://getstream.io/chat/docs/react/)
+
+  - use Stream for building chat, video calls..
+
+  #### how it workes
+
+  - `Backend` generates a secure token for each logged-in user.
+    ```bash
+    npm install stream-chat
+    ```
+  - `Frontend` uses that token to connect the user to Stream’s chat service.
+    ```bash
+     npm install stream-chat stream-chat-react
+    ```
+
+#### ⚡ Quick Summary for stream chat
+
+- `StreamChat.getInstance` → creates chat client
+- `connectUser` → connects logged-in user to Stream
+- `channel("messaging", id, { members })` → creates chat room between users
+- `watch()` → listens for chat updates/messages
+- `Chat + Channel` → main Stream UI wrappers
+- `MessageList + MessageInput` → chat messages & input box
+- `Thread` → replies for a specific message
+
+- lastly: add this line to main.jsx file before index.css file and write css for stream chat ui liberary for give better styling
+
+```bash
+import 'stream-chat-react/dist/css/v2/index.css';
+```
+
+- build call page
+- deploy
