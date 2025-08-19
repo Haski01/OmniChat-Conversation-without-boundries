@@ -64,14 +64,14 @@ It is designed to make communication more engaging and interactive while providi
 ---
 
 ## ⚡ Installation & Setup
-----
+--
 
 #### 1️⃣ Clone the repository
 
-----
+--
 
 #### 🧪 .env Setup
-----
+--
 
 ####  Backend (/backend)
 ```env
@@ -91,7 +91,7 @@ VITE_STREAM_API_KEY=your_stream_api_key
 ---
 
 ### 🔧 Run the Backend
-----
+--
 
 ```bash
 cd backend
@@ -100,7 +100,7 @@ npm run dev
 ```
 
 ### 💻 Run the Frontend
-----
+--
 
 ```bash
 cd frontend
