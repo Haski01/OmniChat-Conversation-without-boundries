@@ -65,8 +65,14 @@ It is designed to make communication more engaging and interactive while providi
 
 ## ⚡ Installation & Setup
 ----
-### 1️⃣ Clone the repository
-### 🧪 .env Setup
+
+#### 1️⃣ Clone the repository
+
+----
+
+#### 🧪 .env Setup
+----
+
 ####  Backend (/backend)
 ```env
 PORT=5001
@@ -76,13 +82,29 @@ STEAM_API_SECRET=your_steam_api_secret
 JWT_SECRET_KEY=your_jwt_secret
 NODE_ENV=development
 ```
+
 ####  Frontend (/frontend)
 ```.env
-PORT=5001
-MONGO_URI=your_mongo_uri
-STEAM_API_KEY=your_steam_api_key
-STEAM_API_SECRET=your_steam_api_secret
-JWT_SECRET_KEY=your_jwt_secret
-NODE_ENV=development
+VITE_STREAM_API_KEY=your_stream_api_key
+```
+
+---
+
+### 🔧 Run the Backend
+----
+
+```bash
+cd backend
+npm install
+npm run dev
+```
+
+### 💻 Run the Frontend
+----
+
+```bash
+cd frontend
+npm install
+npm run dev
 ```
 
