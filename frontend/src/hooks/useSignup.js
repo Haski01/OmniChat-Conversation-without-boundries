@@ -4,7 +4,11 @@ import { signup } from "../lib/api.js";
 const useSignup = () => {
   const queryClient = useQueryClient();
 
-  const { mutate, isPending, error } = useMutation({
+  const {
+    mutate: signupMutation,
+    isPending,
+    error,
+  } = useMutation({
     mutationFn: signup,
 
     // queryClient.invalidateQueries – Marks matching cached queries as stale, triggering a refetch so the UI displays the latest server data.
@@ -13,7 +17,7 @@ const useSignup = () => {
     // once user successfully signup then refetching authentication user
     onSuccess: () => queryClient.invalidateQueries({ queryKey: ["authUser"] }),
   });
-  return { isPending, error, signupMutation: mutate };
+  return { isPending, error, signupMutation };
 };
 
 export default useSignup;
