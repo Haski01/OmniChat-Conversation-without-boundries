@@ -53,7 +53,7 @@ const CallPage = () => {
      */
     const initCall = async () => {
       // Guard: if no token, no user, or no callId → don’t proceed
-      if (!tokenData?.token || !authUser || !client) return;
+      if (!tokenData?.token || !authUser || !callId) return;
 
       try {
         console.log("Initializing Stream video client...");
